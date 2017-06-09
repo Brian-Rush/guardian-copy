@@ -11,10 +11,13 @@ section {
   @extend .super-container;
 }
 
+.little-bottom {
+  display: none;
+}
+
 // media queries to set different grids and properties for headlines section
 @include grid-media($tablet-grid) {
   .headlines {
-    @include grid-media($tablet-grid)
     width: 700px;
     padding: 0 20px;
     margin: 0 auto;
@@ -40,6 +43,7 @@ section {
           height: 75%;
         }
         & .little-bottom {
+          display: block;
           @include grid-column(1, $laptop-hero-grid);
           height: 20%;
         }
@@ -59,10 +63,11 @@ section {
         }
         & .image {
           @include grid-column(4, $tablet-grid);
+          height: 132px;
         }
         & .image img {
           width: 100%;
-          height: 132px;
+          object-fit: cover;
         }
         & .text {
           @include grid-column(4, $tablet-grid);
@@ -93,6 +98,9 @@ section {
       height: $first-panel-laptop-height;
       &:first-of-type {
       @include grid-column(3, $laptop-grid);
+        & .little-bottom {
+          display: block;
+        }
       }
       &:nth-of-type(2) {
         height: $first-panel-laptop-height;
@@ -112,6 +120,7 @@ section {
         & .image img {
           width: 100%;
           height: 132px;
+          object-fit: fill;
         }
         & .text {
           @include grid-column(4, $laptop-grid);
@@ -136,4 +145,8 @@ section {
 
 @media screen and (min-width: $desktop-media) {
 
+}
+
+.spotlight {
+  display: none;
 }
